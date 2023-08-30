@@ -1,0 +1,380 @@
+[
+    {
+        "diningName": "Nazrul Hall",
+        "studentSeats": 400,
+        "Provast": "Nazrul Sir"
+    },
+    {
+        "data": [
+            {
+                "studentId": 36502,
+                "name": "Mubarak hossen",
+                "gender": "Male",
+                "room": 365,
+                "session": "2017-18",
+                "status": "active",
+                "department": "Marketing",
+                "admissionFee": 6500,
+                "emailOrNumber": "01834921642",
+                "address": {
+                    "father": "Mrs. xyzzzz",
+                    "mother": "Miss yyyzzz",
+                    "division": "Chattagram",
+                    "district": "Cumilla",
+                    "subDistrict": "Lakhsham",
+                    "alliance": "sdsdfk",
+                    "village": "sh sfsd sf"
+                },
+                "fees2023": {
+                    "january": {
+                        "maintenanceFee": 260,
+                        "totalDeposit": 2150,
+                        "currrentDeposit": 950,
+                        "lastMonthRefund": 450,
+                        "lastMontheDue": 370,
+                        "totalMeal": 15,
+                        "mealCharge": 75,
+                        "fixedMeal": 1,
+                        "fixedMealCharge": 180,
+                        "totalCost": 2170,
+                        "dueDeposite": 390,
+                        "refundable": 0
+                    },
+                    "fees2024": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    },
+                    "fees2025": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    }
+                }
+            },
+            {
+                "studentId": 36501,
+                "name": "Dulal Meah",
+                "gender": "Male",
+                "room": 365,
+                "seasion": "2017-18",
+                "status": "active",
+                "department": "Marketing",
+                "admissionFee": 10950,
+                "emailOrNumber": "01834921641",
+                "address": {
+                    "father": "Mrs. xyzzzz ",
+                    "mother": "Miss yyyzzz",
+                    "division": "Chattagram",
+                    "district": "Cumilla",
+                    "subDistrict": "Lakhsham",
+                    "alliance": "sdsdfk",
+                    "village": "sh sfsd sf"
+                },
+                "mealInfo": {
+                    "totalDeposit": 1500,
+                    "currrentDeposit": 1050,
+                    "lastMonthRefund": 450,
+                    "lastMontheDue": 370,
+                    "totalMeal": 10,
+                    "mealCharge": 75,
+                    "fixedMeal": 1,
+                    "fixedMealCharge": 180,
+                    "totalCost": 2170,
+                    "refundable": 250
+                },
+                "MaintenanceFee": {
+                    "fees2023": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    },
+                    "fees2024": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 0,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 0,
+                        "august": 0,
+                        "september": 260,
+                        "october": 260,
+                        "november": 0,
+                        "december": 260
+                    },
+                    "fees2025": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    }
+                }
+            },
+            {
+                "studentId": 36503,
+                "name": "Noor Alam",
+                "gender": "Male",
+                "room": 365,
+                "seasion": "2017-18",
+                "status": "active",
+                "department": "Marketing",
+                "admissionFee": 9500,
+                "emailOrNumber": "01834921640",
+                "address": {
+                    "father": "Shofiqur Rahman",
+                    "mother": "Morium Begum",
+                    "division": "Chattagram",
+                    "district": "Cumilla",
+                    "subDistrict": "Chauddagram",
+                    "alliance": "Kashinagor",
+                    "village": "Ramchandrapur"
+                },
+                "mealInfo": {
+                    "totalDeposit": 2250,
+                    "currrentDeposit": 550,
+                    "lastMonthRefund": 450,
+                    "lastMontheDue": 370,
+                    "totalMeal": 20,
+                    "mealCharge": 75,
+                    "fixedMeal": 1,
+                    "fixedMealCharge": 180,
+                    "totalCost": 2170,
+                    "dueDeposite": 0,
+                    "refundable": 200
+                },
+                "MaintenanceFee": {
+                    "fees2023": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    },
+                    "fees2024": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    },
+                    "fees2025": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    }
+                }
+            },
+            {
+                "studentId": 21102,
+                "name": "Kaiyum Hossen",
+                "gender": "Male",
+                "room": 225,
+                "seasion": "2017-18",
+                "status": "active",
+                "department": "Marketing",
+                "admissionFee": 10550,
+                "emailOrNumber": "01834921645",
+                "address": {
+                    "father": "Mrs. xyzzzz ",
+                    "mother": "Miss yyyzzz",
+                    "division": "Chattagram",
+                    "district": "Cumilla",
+                    "subDistrict": "Lakhsham",
+                    "alliance": "sdsdfk",
+                    "village": "sh sfsd sf"
+                },
+                "mealInfo": {
+                    "totalDeposit": 550,
+                    "currrentDeposit": 250,
+                    "lastMonthRefund": 450,
+                    "lastMontheDue": 370,
+                    "totalMeal": 3,
+                    "mealCharge": 75,
+                    "fixedMeal": 0,
+                    "fixedMealCharge": 0,
+                    "dueDeposite": 0,
+                    "refundable": 0
+                },
+                "MaintenanceFee": {
+                    "fees2023": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 0,
+                        "jun": 260,
+                        "july": 0,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 0,
+                        "december": 260
+                    },
+                    "fees2024": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    },
+                    "fees2025": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    }
+                }
+            },
+            {
+                "studentId": 15303,
+                "name": "Himel Vaii",
+                "gender": "Male",
+                "room": 153,
+                "seasion": "2017-18",
+                "status": "inactive",
+                "department": "Marketing",
+                "admissionFee": 5550,
+                "emailOrNumber": "01834921646",
+                "address": {
+                    "father": "Mrs. xyzzzz ",
+                    "mother": "Miss yyyzzz",
+                    "division": "Chattagram",
+                    "district": "Cumilla",
+                    "subDistrict": "Chauddagram",
+                    "alliance": "Kashinagor",
+                    "village": "Bor bari"
+                },
+                "mealInfo": {
+                    "totalDeposit": 650,
+                    "currrentDeposit": 150,
+                    "lastMonthRefund": 450,
+                    "lastMontheDue": 370,
+                    "totalMeal": 3,
+                    "mealCharge": 75,
+                    "fixedMeal": 0,
+                    "fixedMealCharge": 0,
+                    "dueDeposite": 0,
+                    "refundable": 0
+                },
+                "MaintenanceFee": {
+                    "fees2023": {
+                        "january": 0,
+                        "february": 260,
+                        "march": 0,
+                        "april": 260,
+                        "may": 0,
+                        "jun": 0,
+                        "july": 260,
+                        "august": 0,
+                        "september": 260,
+                        "october": 260,
+                        "november": 0,
+                        "december": 260
+                    },
+                    "fees2024": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 0,
+                        "may": 0,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 0,
+                        "november": 260,
+                        "december": 0
+                    },
+                    "fees2025": {
+                        "january": 260,
+                        "february": 260,
+                        "march": 260,
+                        "april": 260,
+                        "may": 260,
+                        "jun": 260,
+                        "july": 260,
+                        "august": 260,
+                        "september": 260,
+                        "october": 260,
+                        "november": 260,
+                        "december": 260
+                    }
+                }
+            }
+        ]
+    }
+]
