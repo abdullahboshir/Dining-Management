@@ -3,22 +3,26 @@ import React, { useState } from 'react';
 import maleAvatar from '../../assets/images/avatar/icon-5359553_640.png';
 import DiningFeeModal from './DiningFeeModal';
 import { useAuthContext } from '../../context/AuthContextProvider';
+import { fetchGlobalDatas } from '../../utils/commonApi';
 
 const StudentTable = () => {
 
   const { studentsData } = useAuthContext();
   const [dineFeeModal, setDineFeeModal] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState('');
-  const [mealOnSwitch, setMealOnSwitch] = useState(false);
 
 
-  const mealSwitch = (e) => {
+
+  const mealSwitch = (e, studentId) => {
     const checkedValue = e.target.checked;
+    console.log('iddddddddddddddd', checkedValue, studentId)
 
     if(checkedValue){
-      console.log('meal onnnnnnnn')
+      const postData = fetchGlobalDatas({mealSwitch: 'on'}, `student/mealSwitch/${studentId}`, 'PATCH');
+      console.log('onnnnnnnnn', postData)
     } else if(!checkedValue){
-      console.log('meal offffffffff 17223186558 ')
+      const postData = fetchGlobalDatas({mealSwitch: 'off'}, `student/mealSwitch/${studentId}`, 'PATCH');
+      console.log('offffffff', postData)
     }
     console.log('sssssssssss', checkedValue)
   };
@@ -95,7 +99,7 @@ const StudentTable = () => {
 
                   <th className='border-2 w-10 py-2 px-3 border-gray-400'>
                     <label className="cursor-pointer label">
-                      <input onClick={mealSwitch} type="checkbox" className="toggle toggle-success" disabled={data.mealInfo.currentDeposit === 0} />
+                      <input onClick={(e) => mealSwitch(e, data._id)} type="checkbox" className="toggle toggle-success" disabled={data.mealInfo.currentDeposit === 0} defaultChecked={data.mealInfo.mealStutas === 'on'} />
                     </label>
 
                   </th>
