@@ -40,6 +40,20 @@
                         "dueDeposite": 390,
                         "refundable": 0
                     },
+                    "february": {
+                        "maintenanceFee": 260,
+                        "totalDeposit": 2150,
+                        "currrentDeposit": 950,
+                        "lastMonthRefund": 450,
+                        "lastMontheDue": 370,
+                        "totalMeal": 15,
+                        "mealCharge": 75,
+                        "fixedMeal": 1,
+                        "fixedMealCharge": 180,
+                        "totalCost": 2170,
+                        "dueDeposite": 390,
+                        "refundable": 0
+                    },
                     "fees2024": {
                         "january": 260,
                         "february": 260,

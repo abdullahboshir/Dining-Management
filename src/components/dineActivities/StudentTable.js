@@ -7,7 +7,7 @@ import { fetchGlobalDatas } from '../../utils/commonApi';
 
 const StudentTable = () => {
 
-  const { studentsData } = useAuthContext();
+  const { studentsData, diningDeclaration } = useAuthContext();
   const [dineFeeModal, setDineFeeModal] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState('');
 
@@ -28,6 +28,7 @@ const StudentTable = () => {
   };
 
 
+  console.log('declaration', diningDeclaration)
   return (
     <div>
 
@@ -99,7 +100,7 @@ const StudentTable = () => {
 
                   <th className='border-2 w-10 py-2 px-3 border-gray-400'>
                     <label className="cursor-pointer label">
-                      <input onClick={(e) => mealSwitch(e, data._id)} type="checkbox" className="toggle toggle-success" disabled={data.mealInfo.currentDeposit === 0} defaultChecked={data.mealInfo.mealStutas === 'on'} />
+                      <input onClick={(e) => mealSwitch(e, data._id)} type="checkbox" className="toggle toggle-success" disabled={data.mealInfo.currentDeposit <= 100} defaultChecked={data.mealInfo.mealStatus === 'on'} />
                     </label>
 
                   </th>
@@ -128,7 +129,7 @@ const StudentTable = () => {
                   </td>
 
 
-                  <th className='border-2 border-r-0 border-t-0 p-0 w-32 border-gray-400'> <td className='border-r-2  py-[22px] px-2 w-[64px]'>2610</td>  <td className='w-[64px] py-[22px] px-2 '>1050</td> </th>
+                  <th className='border-2 border-r-0 border-t-0 p-0 w-32 border-gray-400'> <td className='border-r-2  py-[22px] px-2 w-[64px]'>{diningDeclaration.maintenanceCharge}</td>  <td className='w-[64px] py-[22px] px-2 '>1050</td> </th>
 
                   <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-[22px] px-2'>570</td><td className='w-[64px] py-[22px] px-2'>160</td>
                   </th>
@@ -136,7 +137,7 @@ const StudentTable = () => {
                   <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-[22px] px-2 pl-[26px]'>{data.mealInfo.currentDeposit}</td>  <td className={data.mealInfo.totalDeposit? 'w-[64px] py-[22px] px-2': 'text-red-500'}>{data.mealInfo.totalDeposit}</td>
                   </th>
 
-                  <th className='border-2 p-0 w-44 border-gray-400'> <td className='border-r-2  w-[58px] py-[22px] px-2'>{data.mealInfo.totalMeal}</td>  <td className='  w-[58px] py-[22px] px-2 border-r-2'>{data.mealInfo.mealCharge}</td> <td className='  w-[58px]  py-[22px] px-2'>01</td>
+                  <th className='border-2 p-0 w-44 border-gray-400'> <td className='border-r-2  w-[58px] py-[22px] px-2'>{data.mealInfo.totalMeal}</td>  <td className='  w-[58px] py-[22px] px-2 border-r-2'>{diningDeclaration.mealCharge}</td> <td className='  w-[58px]  py-[22px] px-2'>01</td>
                   </th>
 
                   <th className='border-2 p-0 w-18 py-[22px] px-2 border-gray-400'>{data.mealInfo.totalCost}</th>

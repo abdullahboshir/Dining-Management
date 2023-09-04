@@ -3,25 +3,28 @@ import { fetchGlobalDatas } from '../../utils/commonApi';
 
 const CommonCharge = ({ setCommonCharge }) => {
 
-    const selectedStudentId = true;
+   
     const handleAddDeposit = (e) => {
         e.preventDefault();
-        if (selectedStudentId) {
-            const mealCharge = e.target.mealCharge.value;
+      
+            const maintenanceCharge = parseInt(e.target.maintenanceFee.value);
+            const mealCharge = parseInt(e.target.mealCharge.value);
             const fixedMealCharge = e.target.fixedMealCharge.value;
-            console.log('checkkkkkkkkk', typeof(mealCharge))
+            const noticeBoard = e.target.noticeBoard.value;
 
-            const DiningFee = {
+              console.log('checkkkkkkkkk', typeof(maintenanceCharge))
+            const diningDeclaration = {
+                maintenanceCharge,
                 mealCharge,
-                fixedMealCharge
-
+                fixedMealCharge,
+                noticeBoard
             };
+          
 
-            console.log('valueeeeeeeee', DiningFee)
-            const postData = fetchGlobalDatas(DiningFee, `students/setMealCharge/`, 'PATCH');
-            console.log('11111111', postData)
-            alert('Student created Successfull', postData)
-        }
+            console.log('valueeeeeeeee', diningDeclaration)
+            const declarationRes = fetchGlobalDatas(diningDeclaration, `students/declaration/`, 'POST');
+            console.log('11111111', declarationRes)
+            alert('Student created Successfull', declarationRes)
     };
 
     return (
@@ -34,20 +37,32 @@ const CommonCharge = ({ setCommonCharge }) => {
 
 
             <div className='h-screen w-screen bg-black opacity-60 absolute top-0'></div>
-            <div className='bg-white h-[430px]  w-[1000px] absolute flex justify-center flex-col overflow-y-auto'>
-                <h1 className='text-4xl mb-10'>Add Meal Charge for Students</h1>
+            <div className='bg-white h-[430px]  w-[1000px] absolute flex justify-center flex-col overflow-y-auto py-10 px-28'>
+                <h1 className='text-4xl mb-10 pt-5'>Add Meal Charge for Students</h1>
 
                 <form onSubmit={handleAddDeposit}>
-                    <div className='flex justify-around'>
+                    <div className='flex justify-around flex-col'>
 
-                        <div className='grid grid-cols-2 gap-4'>
+                        <div className='grid grid-cols-3 gap-4'>
+
+
+                        <section>
+                                <label className="label">
+                                    <div className="text">Maintenance Charge</div>
+                                </label>
+
+                                <input type="number" name='maintenanceFee' placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" onKeyDown={(e) =>
+                                    ["ArrowUp", "ArrowDown", "e", "E", "-"].includes(e.key) && e.preventDefault()
+                                } />
+                            </section>
+
 
                             <section>
                                 <label className="label">
                                     <div className="text">Meal Charge</div>
                                 </label>
 
-                                <input type="text" name='mealCharge' placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" onKeyDown={(e) =>
+                                <input type="number" name='mealCharge' placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" onKeyDown={(e) =>
                                     ["ArrowUp", "ArrowDown", "e", "E", "-"].includes(e.key) && e.preventDefault()
                                 } />
                             </section>
@@ -61,6 +76,17 @@ const CommonCharge = ({ setCommonCharge }) => {
                             </section>
 
                         </div>
+
+                        <section className='flex flex-col items-center mt-5'>
+                                <label className="label">
+                                    <div className="text">Add a Notice</div>
+                                </label>
+
+                                <textarea name='noticeBoard' placeholder="Add Notice" className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
+                            </section>
+
+
+
                     </div>
                     {/* <p>{error}</p> */}
                     <button type="submit" className='btn mt-10'>Submit</button>

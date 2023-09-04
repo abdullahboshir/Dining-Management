@@ -5,6 +5,7 @@ const authContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
     const [studentsData, setStudentsData] = useState([]);
+    const [diningDeclaration, setDiningDeclaration] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
   
@@ -23,9 +24,9 @@ export const AuthContextProvider = ({ children }) => {
             const studentJson = await response.json();
     
             setStudentsData(studentJson.data)
+            console.log('datas are goted', studentsData)
             setError(null);
           } catch (error) {
-            console.log('thsi sssss1111111111111sssss', error.message)
             setError(error.message);
           }
         }
@@ -36,8 +37,38 @@ export const AuthContextProvider = ({ children }) => {
 
 
 
+    // Declaration Data 
+    useEffect(() => {
+        const fetchDeclaration = async () => {
+          setIsLoading(true);
+          try {
+            const response = await fetch('http://localhost:5000/students/declaration');
+            const declarationJson = await response.json();
+
+  
+            if (declarationJson.status === 'failed') {
+              throw new Error(`GOT A ERROR ${declarationJson.error}`);
+            };
+       
+
+            setDiningDeclaration(declarationJson.data);
+            setError(null);
+          } catch (error) {
+            setError(error.message);
+          }
+          finally {
+            setIsLoading(false)
+          }
+        }
+    
+        fetchDeclaration()
+      }, [diningDeclaration]);
+
+
+
+
     return (
-        <authContext.Provider value={{studentsData}}>
+        <authContext.Provider value={{studentsData, diningDeclaration}}>
             {children}
         </authContext.Provider>
     );
