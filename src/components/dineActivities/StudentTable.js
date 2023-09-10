@@ -11,20 +11,19 @@ const StudentTable = () => {
   const [dineFeeModal, setDineFeeModal] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState('');
 
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear().toString();
+  const currentMonth = currentDate.toLocaleString('default', { month: 'long', locale: 'bn-BD' });
 
 
   const mealSwitch = (e, studentId) => {
     const checkedValue = e.target.checked;
-    console.log('iddddddddddddddd', checkedValue, studentId)
-
     if(checkedValue){
       const postData = fetchGlobalDatas({mealSwitch: 'on'}, `student/mealSwitch/${studentId}`, 'PATCH');
-      console.log('onnnnnnnnn', postData)
     } else if(!checkedValue){
       const postData = fetchGlobalDatas({mealSwitch: 'off'}, `student/mealSwitch/${studentId}`, 'PATCH');
       console.log('offffffff', postData)
     }
-    console.log('sssssssssss', checkedValue)
   };
 
 
@@ -100,7 +99,7 @@ const StudentTable = () => {
 
                   <th className='border-2 w-10 py-2 px-3 border-gray-400'>
                     <label className="cursor-pointer label">
-                      <input onClick={(e) => mealSwitch(e, data._id)} type="checkbox" className="toggle toggle-success" disabled={data.mealInfo.currentDeposit <= 100} defaultChecked={data.mealInfo.mealStatus === 'on'} />
+                      <input onClick={(e) => mealSwitch(e, data._id)} type="checkbox" className="toggle toggle-success" disabled={data.mealInfo[currentYear][currentMonth].currentDeposit <= 100} defaultChecked={data.mealInfo[currentYear][currentMonth].mealStatus === 'on'} />
                     </label>
 
                   </th>
@@ -134,13 +133,13 @@ const StudentTable = () => {
                   <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-[22px] px-2'>570</td><td className='w-[64px] py-[22px] px-2'>160</td>
                   </th>
 
-                  <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-[22px] px-2 pl-[26px]'>{data.mealInfo.currentDeposit}</td>  <td className={data.mealInfo.totalDeposit? 'w-[64px] py-[22px] px-2': 'text-red-500'}>{data.mealInfo.totalDeposit}</td>
+                  <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-[22px] px-2 pl-[26px]'>{data.mealInfo[currentYear][currentMonth].currentDeposit}</td>  <td className={data.mealInfo[currentYear][currentMonth].totalDeposit? 'w-[64px] py-[22px] px-2': 'text-red-500'}>{data.mealInfo[currentYear][currentMonth].totalDeposit}</td>
                   </th>
 
-                  <th className='border-2 p-0 w-44 border-gray-400'> <td className='border-r-2  w-[58px] py-[22px] px-2'>{data.mealInfo.totalMeal}</td>  <td className='  w-[58px] py-[22px] px-2 border-r-2'>{diningDeclaration.mealCharge}</td> <td className='  w-[58px]  py-[22px] px-2'>01</td>
+                  <th className='border-2 p-0 w-44 border-gray-400'> <td className='border-r-2  w-[58px] py-[22px] px-2'>{data.mealInfo[currentYear][currentMonth].totalMeal}</td>  <td className='  w-[58px] py-[22px] px-2 border-r-2'>{diningDeclaration.mealCharge}</td> <td className='  w-[58px]  py-[22px] px-2'>01</td>
                   </th>
 
-                  <th className='border-2 p-0 w-18 py-[22px] px-2 border-gray-400'>{data.mealInfo.totalCost}</th>
+                  <th className='border-2 p-0 w-18 py-[22px] px-2 border-gray-400'>{data.mealInfo[currentYear][currentMonth].totalCost}</th>
                   <th className='border-2 p-0 w-18 py-[22px] px-2 border-gray-400'>560</th>
 
                   <th className='border-2 border-gray-400 w-12'>

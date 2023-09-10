@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import RegisterStudents from './RegisterStudents';
 import DiningFeeModal from './DiningFeeModal';
 import CommonCharge from '../shared/CommonCharge';
+import Students from '../../pages/Students';
+import { Link } from 'react-router-dom';
 
 const DineNav = () => {
 
     const [commonCharge, setCommonCharge] = useState(false)
 
     return (
-        <div className='h-20 w-full bg-blue-500 flex items-center justify-evenly'>
+        <div className='h-20 w-full bg-blue-500 flex items-center justify-between'>
 
-            <div>
-                <RegisterStudents />
+            <div className='w-[450px] flex justify-start ml-10'>
+                <RegisterStudents/>
             </div>
 
 
-            <div className="form-control">
+        <div className='w-[450px] flex justify-center'>
+        <div className="form-control w-72">
                 <div className="input-group">
                     <input type="text" placeholder="Search…" className="input input-bordered w-80" />
                     <button className="btn btn-square">
@@ -23,21 +26,36 @@ const DineNav = () => {
                     </button>
                 </div>
             </div>
+        </div>
 
 
-        <div>
-        <div>
-                {
-                    commonCharge && <CommonCharge setCommonCharge={setCommonCharge} />
-                }
 
-                <div className='flex-4 flex-col'>
-                    <div className=' flex items-center cursor-pointer'>
-                        <button onClick={() => setCommonCharge(true)} className='text-base text-white hover:text-lg duration-200'>Meal Charge+</button>
+            <div className='flex justify-end mr-10 w-[450px]'>
+                <div className='mr-5'>
+
+                   <Link to='/studentsPage'>
+                   <div className='flex-4 flex-col'>
+                        <div className=' flex items-center cursor-pointer'>
+                            <button className='text-base text-white hover:text-lg duration-200'>Students</button>
+                        </div>
+                    </div>
+                   </Link>
+                </div>
+
+                <div>
+                <div>
+                    {
+                        commonCharge && <CommonCharge setCommonCharge={setCommonCharge} />
+                    }
+
+                    <div className='flex-4 flex-col'>
+                        <div className=' flex items-center cursor-pointer'>
+                            <button onClick={() => setCommonCharge(true)} className='text-base text-white hover:text-lg duration-200'>Declaration</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
 
         </div>
     );

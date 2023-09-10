@@ -7,7 +7,13 @@
     {
         "data": [
             {
+                "authorId": "author1",
+                "diningId": "nazrulHall",
+                "managerId": "ariful Islam",
                 "studentId": 36502,
+                "loginPin": 2467823,
+                "period": "2/january/2027",
+                "expired": false,
                 "name": "Mubarak hossen",
                 "gender": "Male",
                 "room": 365,
@@ -25,65 +31,28 @@
                     "alliance": "sdsdfk",
                     "village": "sh sfsd sf"
                 },
-                "fees2023": {
-                    "january": {
-                        "maintenanceFee": 260,
-                        "totalDeposit": 2150,
-                        "currrentDeposit": 950,
-                        "lastMonthRefund": 450,
-                        "lastMontheDue": 370,
-                        "totalMeal": 15,
-                        "mealCharge": 75,
-                        "fixedMeal": 1,
-                        "fixedMealCharge": 180,
-                        "totalCost": 2170,
-                        "dueDeposite": 390,
-                        "refundable": 0
-                    },
-                    "february": {
-                        "maintenanceFee": 260,
-                        "totalDeposit": 2150,
-                        "currrentDeposit": 950,
-                        "lastMonthRefund": 450,
-                        "lastMontheDue": 370,
-                        "totalMeal": 15,
-                        "mealCharge": 75,
-                        "fixedMeal": 1,
-                        "fixedMealCharge": 180,
-                        "totalCost": 2170,
-                        "dueDeposite": 390,
-                        "refundable": 0
-                    },
-                    "fees2024": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
-                    },
-                    "fees2025": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
+                "mealInfo": {
+                    "2023": {
+                        "january": {
+                            "mealStatus": "off",
+                            "maintenanceFee": 0,
+                            "totalDeposit": "0",
+                            "currrentDeposit": "0",
+                            "lastMonthRefund": "0",
+                            "lastMontheDue": "0",
+                            "totalMeal": 0,
+                            "mealCharge": "0",
+                            "fixedMeal": 0,
+                            "fixedMealCharge": 0,
+                            "totalCost": "0",
+                            "dueDeposite": "0",
+                            "refundable": "0"
+                        }
                     }
                 }
             },
+
+
             {
                 "studentId": 36501,
                 "name": "Dulal Meah",
@@ -104,59 +73,22 @@
                     "village": "sh sfsd sf"
                 },
                 "mealInfo": {
-                    "totalDeposit": 1500,
-                    "currrentDeposit": 1050,
-                    "lastMonthRefund": 450,
-                    "lastMontheDue": 370,
-                    "totalMeal": 10,
-                    "mealCharge": 75,
-                    "fixedMeal": 1,
-                    "fixedMealCharge": 180,
-                    "totalCost": 2170,
-                    "refundable": 250
-                },
-                "MaintenanceFee": {
-                    "fees2023": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
-                    },
-                    "fees2024": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 0,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 0,
-                        "august": 0,
-                        "september": 260,
-                        "october": 260,
-                        "november": 0,
-                        "december": 260
-                    },
-                    "fees2025": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
+                    "2023": {
+                        "january": {
+                            "mealStatus": "off",
+                            "maintenanceFee": 0,
+                            "totalDeposit": "0",
+                            "currrentDeposit": "0",
+                            "lastMonthRefund": "0",
+                            "lastMontheDue": "0",
+                            "totalMeal": 0,
+                            "mealCharge": "0",
+                            "fixedMeal": 0,
+                            "fixedMealCharge": 0,
+                            "totalCost": "0",
+                            "dueDeposite": "0",
+                            "refundable": "0"
+                        }
                     }
                 }
             },
@@ -180,60 +112,22 @@
                     "village": "Ramchandrapur"
                 },
                 "mealInfo": {
-                    "totalDeposit": 2250,
-                    "currrentDeposit": 550,
-                    "lastMonthRefund": 450,
-                    "lastMontheDue": 370,
-                    "totalMeal": 20,
-                    "mealCharge": 75,
-                    "fixedMeal": 1,
-                    "fixedMealCharge": 180,
-                    "totalCost": 2170,
-                    "dueDeposite": 0,
-                    "refundable": 200
-                },
-                "MaintenanceFee": {
-                    "fees2023": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
-                    },
-                    "fees2024": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
-                    },
-                    "fees2025": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
+                    "2023": {
+                        "january": {
+                            "mealStatus": "off",
+                            "maintenanceFee": 0,
+                            "totalDeposit": "0",
+                            "currrentDeposit": "0",
+                            "lastMonthRefund": "0",
+                            "lastMontheDue": "0",
+                            "totalMeal": 0,
+                            "mealCharge": "0",
+                            "fixedMeal": 0,
+                            "fixedMealCharge": 0,
+                            "totalCost": "0",
+                            "dueDeposite": "0",
+                            "refundable": "0"
+                        }
                     }
                 }
             },
@@ -257,59 +151,22 @@
                     "village": "sh sfsd sf"
                 },
                 "mealInfo": {
-                    "totalDeposit": 550,
-                    "currrentDeposit": 250,
-                    "lastMonthRefund": 450,
-                    "lastMontheDue": 370,
-                    "totalMeal": 3,
-                    "mealCharge": 75,
-                    "fixedMeal": 0,
-                    "fixedMealCharge": 0,
-                    "dueDeposite": 0,
-                    "refundable": 0
-                },
-                "MaintenanceFee": {
-                    "fees2023": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 0,
-                        "jun": 260,
-                        "july": 0,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 0,
-                        "december": 260
-                    },
-                    "fees2024": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
-                    },
-                    "fees2025": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
+                    "2023": {
+                        "january": {
+                            "mealStatus": "off",
+                            "maintenanceFee": 0,
+                            "totalDeposit": "0",
+                            "currrentDeposit": "0",
+                            "lastMonthRefund": "0",
+                            "lastMontheDue": "0",
+                            "totalMeal": 0,
+                            "mealCharge": "0",
+                            "fixedMeal": 0,
+                            "fixedMealCharge": 0,
+                            "totalCost": "0",
+                            "dueDeposite": "0",
+                            "refundable": "0"
+                        }
                     }
                 }
             },
@@ -333,59 +190,22 @@
                     "village": "Bor bari"
                 },
                 "mealInfo": {
-                    "totalDeposit": 650,
-                    "currrentDeposit": 150,
-                    "lastMonthRefund": 450,
-                    "lastMontheDue": 370,
-                    "totalMeal": 3,
-                    "mealCharge": 75,
-                    "fixedMeal": 0,
-                    "fixedMealCharge": 0,
-                    "dueDeposite": 0,
-                    "refundable": 0
-                },
-                "MaintenanceFee": {
-                    "fees2023": {
-                        "january": 0,
-                        "february": 260,
-                        "march": 0,
-                        "april": 260,
-                        "may": 0,
-                        "jun": 0,
-                        "july": 260,
-                        "august": 0,
-                        "september": 260,
-                        "october": 260,
-                        "november": 0,
-                        "december": 260
-                    },
-                    "fees2024": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 0,
-                        "may": 0,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 0,
-                        "november": 260,
-                        "december": 0
-                    },
-                    "fees2025": {
-                        "january": 260,
-                        "february": 260,
-                        "march": 260,
-                        "april": 260,
-                        "may": 260,
-                        "jun": 260,
-                        "july": 260,
-                        "august": 260,
-                        "september": 260,
-                        "october": 260,
-                        "november": 260,
-                        "december": 260
+                    "2023": {
+                        "january": {
+                            "mealStatus": "off",
+                            "maintenanceFee": 0,
+                            "totalDeposit": "0",
+                            "currrentDeposit": "0",
+                            "lastMonthRefund": "0",
+                            "lastMontheDue": "0",
+                            "totalMeal": 0,
+                            "mealCharge": "0",
+                            "fixedMeal": 0,
+                            "fixedMealCharge": 0,
+                            "totalCost": "0",
+                            "dueDeposite": "0",
+                            "refundable": "0"
+                        }
                     }
                 }
             }

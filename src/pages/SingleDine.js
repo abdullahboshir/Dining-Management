@@ -5,15 +5,7 @@ import StudentTable from '../components/dineActivities/StudentTable';
 const SingleDine = () => {
     return (
        <div>
-
-      <div>
-      <DineNav/>
-      </div>
-
-      <div>
       <StudentTable/>
-      </div>
-      
        </div>
     );
 };

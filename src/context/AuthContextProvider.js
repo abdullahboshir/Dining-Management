@@ -24,7 +24,7 @@ export const AuthContextProvider = ({ children }) => {
             const studentJson = await response.json();
     
             setStudentsData(studentJson.data)
-            console.log('datas are goted', studentsData)
+            // console.log('datas are goted', studentsData)
             setError(null);
           } catch (error) {
             setError(error.message);
