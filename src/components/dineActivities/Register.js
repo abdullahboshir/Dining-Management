@@ -104,7 +104,7 @@ const Register = ({ setDineRegisterModal }) => {
         const status = e.target.elements.status.value;
         const department = e.target.elements.department.value;
         const admissionFee = e.target.admission.value;
-        const emailOrNumber = e.target.number.value;
+        const emailOrPhoneNumber = e.target.emailOrPhoneNumber.value;
         const father = e.target.father.value;
         const mother = e.target.mother.value;
         const divisionValue = selectedDivision;
@@ -124,7 +124,7 @@ const Register = ({ setDineRegisterModal }) => {
             status,
             department,
             admissionFee,
-            emailOrNumber,
+            emailOrPhoneNumber,
             address: {
                 father,
                 mother,
@@ -227,7 +227,7 @@ const Register = ({ setDineRegisterModal }) => {
 
                             <div>
                                 <p className='mb-1'>Phone Number</p>
-                                <input name='number' type="text" placeholder="Type here" className="input input-bordered input-success w-full h-10 max-w-xs mb-4" />
+                                <input name='emailOrPhoneNumber' type="text" placeholder="Type here" className="input input-bordered input-success w-full h-10 max-w-xs mb-4" />
                             </div>
 
                             <div>

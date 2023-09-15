@@ -22,12 +22,11 @@ const StudentTable = () => {
       const postData = fetchGlobalDatas({mealSwitch: 'on'}, `student/mealSwitch/${studentId}`, 'PATCH');
     } else if(!checkedValue){
       const postData = fetchGlobalDatas({mealSwitch: 'off'}, `student/mealSwitch/${studentId}`, 'PATCH');
-      console.log('offffffff', postData)
     }
   };
 
 
-  console.log('declaration', diningDeclaration)
+ 
   return (
     <div>
 
@@ -114,7 +113,7 @@ const StudentTable = () => {
                       </div>
                       <div>
                         <div className="font-bold">{data.name}</div>
-                        <div className="text-lg opacity-80">{data.studentId}</div>
+                        <div className="text-lg opacity-80">{data.studentId} / {data?.studentPin}</div>
                       </div>
                     </div>
                   </td>

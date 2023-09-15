@@ -24,7 +24,6 @@ export const fetchLocalDatas = async (localApiUrl) => {
 
 // fetch for local api 
 export const fetchGlobalDatas = async (newData, url, method,) => {
-  console.log('surlllll', url)
     try {
       const response = await fetch(`${BASE_URL}${url}`, {
         method: method,

@@ -21,9 +21,7 @@ const CommonCharge = ({ setCommonCharge }) => {
             };
           
 
-            console.log('valueeeeeeeee', diningDeclaration)
             const declarationRes = fetchGlobalDatas(diningDeclaration, `students/declaration/`, 'POST');
-            console.log('11111111', declarationRes)
             alert('Student created Successfull', declarationRes)
     };
 
