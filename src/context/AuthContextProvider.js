@@ -6,6 +6,7 @@ const authContext = createContext()
 export const AuthContextProvider = ({ children }) => {
     const [studentsData, setStudentsData] = useState([]);
     const [diningDeclaration, setDiningDeclaration] = useState([]);
+    const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
   
@@ -66,9 +67,12 @@ export const AuthContextProvider = ({ children }) => {
 
 
 
+      
+
+
 
     return (
-        <authContext.Provider value={{studentsData, diningDeclaration}}>
+        <authContext.Provider value={{studentsData, diningDeclaration, setUser, user}}>
             {children}
         </authContext.Provider>
     );

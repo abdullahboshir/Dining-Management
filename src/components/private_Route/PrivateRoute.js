@@ -1,11 +1,17 @@
 import React from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 
-const privateRoute = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const PrivateRoute = ({children}) => {
+    
+    const location = useLocation();
+    const token = localStorage.getItem('accessToken');
+
+
+    console.log('this is token',token)
+
+
+
+    return token? children : <Navigate to='/login' state={{from: location}} replace />
 };
 
-export default privateRoute;
+export default PrivateRoute;

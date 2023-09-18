@@ -6,6 +6,8 @@ import Students from '../pages/Students';
 import DineNav from '../components/dineActivities/DineNav';
 import Login from '../pages/Login';
 import SetPassword from '../pages/SetPassword';
+import PrivateRoute from '../components/private_Route/PrivateRoute';
+
 
 
 
@@ -15,24 +17,43 @@ const AllRoutes = () => {
     return (
         <div>
             <Routes>
-                <Route path='/' element={<Home />} />
+
+                <Route path='/' element={
+                    <PrivateRoute>
+                        <Home />
+                    </PrivateRoute>
+                } />
+
+                <Route path='home' element={
+                    <PrivateRoute>
+                        <Home />
+                    </PrivateRoute>
+                } />
+
                 <Route path='home' element={<Home />} />
                 <Route path='login' element={<Login />} />
-                <Route path='setPassword' element={<SetPassword />} />
-                <Route path='singleDineHome' element={
-                    <privateRoute>
-                        <div>
-                        <DineNav />
-                        <SingleDine />
-                    </div>
-                    </privateRoute>
+
+                <Route path='setPassword' element={
+                    <PrivateRoute>
+                        <SetPassword />
+                    </PrivateRoute>
                 } />
+
+                <Route path='singleDineHome' element={
+                    <PrivateRoute>
+                        <div>
+                            <DineNav />
+                            <SingleDine />
+                        </div>
+                    </PrivateRoute>
+                } />
+
                 <Route path='studentsPage' element={
-                <div>
-                    <DineNav/>
-                    <Students />
-                </div>
-            } />
+                    <div>
+                        <DineNav />
+                        <Students />
+                    </div>
+                } />
             </Routes>
         </div>
     );
