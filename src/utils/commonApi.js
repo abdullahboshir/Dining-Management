@@ -42,7 +42,7 @@ export const fetchGlobalDatas = async (newData, url, method,) => {
       return data;
 
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching data:', error.message);
       throw error;
     }
   };

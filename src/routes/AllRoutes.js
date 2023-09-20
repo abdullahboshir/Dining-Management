@@ -39,20 +39,18 @@ const AllRoutes = () => {
                     </PrivateRoute>
                 } />
 
-                <Route path='singleDineHome' element={
+                <Route path='singleDineHome/:diningId' element={
                     <PrivateRoute>
-                        <div>
-                            <DineNav />
                             <SingleDine />
-                        </div>
                     </PrivateRoute>
                 } />
 
                 <Route path='studentsPage' element={
-                    <div>
-                        <DineNav />
+                   <PrivateRoute>
+                     <div>
                         <Students />
                     </div>
+                   </PrivateRoute>
                 } />
             </Routes>
         </div>

@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import RegisterStudents from './RegisterStudents';
-import DiningFeeModal from './DiningFeeModal';
 import CommonCharge from '../shared/CommonCharge';
-import Students from '../../pages/Students';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from '../../context/AuthContextProvider';
 
 const DineNav = () => {
-
-    const [commonCharge, setCommonCharge] = useState(false)
+    const [commonCharge, setCommonCharge] = useState(false);
+  
 
     return (
         <div className='h-20 w-full bg-blue-500 flex items-center justify-between'>
 
             <div className='w-[450px] flex justify-start ml-10'>
-                <RegisterStudents/>
+                <RegisterStudents />
             </div>
 
 

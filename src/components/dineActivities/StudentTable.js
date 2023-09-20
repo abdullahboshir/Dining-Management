@@ -4,9 +4,10 @@ import maleAvatar from '../../assets/images/avatar/icon-5359553_640.png';
 import DiningFeeModal from './DiningFeeModal';
 import { useAuthContext } from '../../context/AuthContextProvider';
 import { fetchGlobalDatas } from '../../utils/commonApi';
+import { useParams } from 'react-router-dom';
 
 const StudentTable = () => {
-
+  const {diningId} = useParams();
   const { studentsData, diningDeclaration } = useAuthContext();
   const [dineFeeModal, setDineFeeModal] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState('');
@@ -17,12 +18,17 @@ const StudentTable = () => {
 
 
   const mealSwitch = (e, studentId) => {
+  try {
     const checkedValue = e.target.checked;
+  
     if(checkedValue){
-      const postData = fetchGlobalDatas({mealSwitch: 'on'}, `student/mealSwitch/${studentId}`, 'PATCH');
+      const postData = fetchGlobalDatas({diningId, mealSwitch: 'on'}, `student/mealSwitch/${studentId}`, 'PATCH');
     } else if(!checkedValue){
-      const postData = fetchGlobalDatas({mealSwitch: 'off'}, `student/mealSwitch/${studentId}`, 'PATCH');
+      const postData = fetchGlobalDatas({diningId, mealSwitch: 'off'}, `student/mealSwitch/${studentId}`, 'PATCH');
     }
+  } catch (error) {
+    console.log('Eorror from student table in Meal Switch', error.message)
+  }
   };
 
 

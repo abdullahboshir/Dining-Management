@@ -2,17 +2,18 @@ import { useEffect, useState } from 'react';
 import { fetchGlobalDatas } from '../utils/commonApi';
 import { checkPasswordStrength } from '../utils/commonFunction';
 import { Navigate, useNavigate } from 'react-router-dom';
-import AuthToken from '../utils/authToken';
 import { useAuthContext } from '../context/AuthContextProvider';
+import useToken from '../hooks/useToken';
 
 const Login = () => {
 
   const { setUser, user } = useAuthContext();
   const navigate = useNavigate();
+  // const token = useToken(user)
 
 
 
-
+  // console.log('thESE ARE  data', user.data)
   // const token = AuthToken(user.data)
 
   const handleLoginBlur = async (e) => {
@@ -32,32 +33,26 @@ const Login = () => {
       };
 
       const userInfo = await fetchGlobalDatas(loginInfo, 'student/login', 'POST');
+      localStorage.setItem('accessToken', userInfo?.data?.token)
+      // console.log('got an error', userInfo.data)
       setUser(userInfo)
-      localStorage.setItem('accessToken', user?.data?.token)
-      console.log('this eis data', user.data.user.role)
-
+      
     } catch (error) {
       console.log('got an error', error)
     }
   };
 
 
+useEffect(() => {
   const token = localStorage.getItem('accessToken');
-  useEffect(() => {
-    if (!token) {
-      navigate('/login');
+  if(token){
+    if(user?.data?.others?.role === 'user'){
+      navigate('/studentsPage')
+    } else if(user?.data?.others?.role === 'manager'){
+      navigate('/studentsPage')
     }
-
-    if (token && user?.data?.user?.role === 'user') {
-      navigate('/studentsPage');
-    } else if (token && user?.data?.user?.role === 'admin') {
-      navigate('/home');
-    } else if (token && user?.data?.user?.role === 'manager') {
-      navigate('/singleDineHome');
-    };
-
-
-  }, [token, user]);
+  }
+}, [user])
 
 
   return (

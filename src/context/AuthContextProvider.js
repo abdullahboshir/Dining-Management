@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const authContext = createContext()
 
@@ -10,32 +9,6 @@ export const AuthContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
   
-
-
-    // Student Data 
-    useEffect(() => {
-        const fetchDiningApi = async () => {
-          setIsLoading(true);
-          try {
-            const response = await fetch('http://localhost:5000/students');
-            if (!response.ok) {
-              throw new Error('Network Problem')
-            };
-            
-            const studentJson = await response.json();
-    
-            setStudentsData(studentJson.data)
-            // console.log('datas are goted', studentsData)
-            setError(null);
-          } catch (error) {
-            setError(error.message);
-          }
-        }
-    
-        fetchDiningApi()
-      }, [studentsData]);
-
-
 
 
     // Declaration Data 
@@ -72,7 +45,7 @@ export const AuthContextProvider = ({ children }) => {
 
 
     return (
-        <authContext.Provider value={{studentsData, diningDeclaration, setUser, user}}>
+        <authContext.Provider value={{setStudentsData, studentsData, diningDeclaration, setUser, user}}>
             {children}
         </authContext.Provider>
     );

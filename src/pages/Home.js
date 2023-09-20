@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import SingleDine from './SingleDine';
+import { useAuthContext } from '../context/AuthContextProvider';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { BsBuildingsFill } from 'react-icons/bs';
 import DineRegisterForm from '../components/create dine/DineRegisterForm';
 import { Link } from 'react-router-dom';
-import Register from '../components/dineActivities/Register';
 
 const Home = () => {
     const [dineRegisterModal, setDineRegisterModal] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [allDinings, setAllDinings] = useState([])
+    const [allDinings, setAllDinings] = useState([]);
+
 
 
     useEffect(() => {
@@ -34,6 +34,7 @@ const Home = () => {
 
         fetchDiningApi()
     }, [allDinings]);
+
 
 
     return (
@@ -60,10 +61,13 @@ const Home = () => {
                         allDinings?.map((dinings, i) => (
                          <div className='flex flex-col'>
                                <div className='w-52 h-60 flex border-4 flex-col'>
-                                <div className=' w-52 h-52 flex items-center justify-center cursor-pointer'>
+
+                                <div className=' w-52 h-52 flex items-center justify-center cursor-pointer'> 
+                                  
+                                   <Link to={`/singleDineHome/${dinings._id}`}  className='text-6xl text-green-600 hover:text-7xl duration-200'><BsBuildingsFill /></Link>
                                    
-                                    <Link to='/singleDineHome'  className='text-6xl text-green-600 hover:text-7xl duration-200'><BsBuildingsFill /></Link>
                                 </div>
+                                
                                 <div className='bg-gray-100 w-46 h-12 text-lg font-bold pt-2'><p>{dinings?.diningName}</p></div>
                             </div>
                          </div>

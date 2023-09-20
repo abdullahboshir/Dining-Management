@@ -1,9 +1,10 @@
 import React from 'react';
 import { fetchGlobalDatas } from '../../utils/commonApi';
+import { useParams } from 'react-router-dom';
 
 const DiningFeeModal = ({ setDineFeeModal, selectedStudentId }) => {
 
-
+    const {diningId} = useParams();
 
 
     const handleAddDeposit = (e) => {
@@ -15,6 +16,7 @@ const DiningFeeModal = ({ setDineFeeModal, selectedStudentId }) => {
         
 
         const DiningFee = {
+            diningId,
             maintenanceFee,
             addMoney,
             addMeal
