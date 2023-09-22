@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { fetchGlobalDatas } from '../utils/commonApi';
 import { checkPasswordStrength } from '../utils/commonFunction';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 
 const SetPassword = () => {
+  const {diningId} = useParams();
   const [passwordConfirmation, setPasswordConfirmation] = useState(false);
   const [passwordMessage, setPasswordMessage] = useState('');
 
@@ -36,6 +37,7 @@ const SetPassword = () => {
 
 
       const authInfo = {
+        diningId,
         emailOrPhoneNumber,
         password,
         studentPin

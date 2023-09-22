@@ -9,13 +9,9 @@ const SingleDine = () => {
     const {diningId} = useParams();
     // console.log('dineeeeeeeeeeeeeeee', diningId)
     
-    const {setDiningId, setStudentsData, studentsData} = useAuthContext();
+    const {setStudentsData, studentsData} = useAuthContext();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-
-    // setDiningId(diningId)
-    // useEffect(() => {
-    // }, [diningId, setDiningId])
 
 
 // Student Data 
@@ -39,7 +35,7 @@ useEffect(() => {
     }
 
     fetchDiningApi()
-  }, [studentsData]);
+  }, [setStudentsData, studentsData]);
 
 
 

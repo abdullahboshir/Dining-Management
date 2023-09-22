@@ -90,6 +90,7 @@ const Register = () => {
 
 
     const handleDingingRegister = (e) => {
+      try {
         e.preventDefault();
         const diningName = e.target.dineName.value;
         const divisionValue = selectedDivision;
@@ -125,6 +126,9 @@ const Register = () => {
 
         const postData = fetchGlobalDatas(newDining, 'dining/add', 'POST')
         alert('Dine created Successfull', postData)
+      } catch (error) {
+        console.log(error.message)
+      }
     };
 
 

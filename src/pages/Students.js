@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import image from '../assets/images/processing1111.png';
 import circle from '../assets/images/circle.png';
-import { useAuthContext } from '../context/AuthContextProvider';
 import '../assets/css/Students_meal_Switch.css';
+import { useAuthContext } from '../context/AuthContextProvider';
 
 const Students = () => {
     const { studentsData, diningDeclaration } = useAuthContext();

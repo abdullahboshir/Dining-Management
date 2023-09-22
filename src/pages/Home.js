@@ -12,7 +12,6 @@ const Home = () => {
     const [allDinings, setAllDinings] = useState([]);
 
 
-
     useEffect(() => {
         const fetchDiningApi = async () => {
             setIsLoading(true);

@@ -6,7 +6,10 @@ import Students from '../pages/Students';
 import DineNav from '../components/dineActivities/DineNav';
 import Login from '../pages/Login';
 import SetPassword from '../pages/SetPassword';
-import PrivateRoute from '../components/private_Route/PrivateRoute';
+import PrivateRoute from '../components/require_auth/PrivateRoute';
+import RequireAdmin from '../components/require_auth/RequireAdmin';
+import NotFound from '../pages/NotFound';
+
 
 
 
@@ -19,18 +22,18 @@ const AllRoutes = () => {
             <Routes>
 
                 <Route path='/' element={
-                    <PrivateRoute>
+                    <RequireAdmin>
                         <Home />
-                    </PrivateRoute>
+                    </RequireAdmin>
                 } />
 
-                <Route path='home' element={
-                    <PrivateRoute>
-                        <Home />
-                    </PrivateRoute>
-                } />
 
-                <Route path='home' element={<Home />} />
+               <Route element={<RequireAdmin/>}>
+                <Route path='/' element={<Home/>} />
+                <Route path='home' element={<Home/>} />
+               </Route>
+
+           
                 <Route path='login' element={<Login />} />
 
                 <Route path='setPassword' element={
@@ -52,6 +55,8 @@ const AllRoutes = () => {
                     </div>
                    </PrivateRoute>
                 } />
+
+                <Route path='*' element={<NotFound/>} />
             </Routes>
         </div>
     );

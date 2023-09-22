@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { fetchGlobalDatas } from '../utils/commonApi';
 import { checkPasswordStrength } from '../utils/commonFunction';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContextProvider';
 import useToken from '../hooks/useToken';
 
 const Login = () => {
-
-  const { setUser, user } = useAuthContext();
+  const {diningId} = useParams();
+  const { currentUser, setCurrentUser } = useAuthContext();
   const navigate = useNavigate();
   // const token = useToken(user)
 
@@ -28,14 +28,16 @@ const Login = () => {
       };
 
       const loginInfo = {
+        diningId,
         emailOrPhoneNumber,
         password
       };
 
       const userInfo = await fetchGlobalDatas(loginInfo, 'student/login', 'POST');
       localStorage.setItem('accessToken', userInfo?.data?.token)
-      // console.log('got an error', userInfo.data)
-      setUser(userInfo)
+      localStorage.setItem('emailOrNumber', userInfo?.data?.others?.emailOrPhoneNumber)
+      console.log('got an error', userInfo?.data?.others?.emailOrPhoneNumber)
+      setCurrentUser(userInfo)
       
     } catch (error) {
       console.log('got an error', error)
@@ -45,14 +47,25 @@ const Login = () => {
 
 useEffect(() => {
   const token = localStorage.getItem('accessToken');
+  console.log('toeknnnnnnnnn', token)
+
+  if (!token || token === 'null' || token === 'undefined' ) {
+    return navigate('/login');
+   };
+
   if(token){
-    if(user?.data?.others?.role === 'user'){
-      navigate('/studentsPage')
-    } else if(user?.data?.others?.role === 'manager'){
+    if(currentUser?.data?.others?.role === 'user'){
       navigate('/studentsPage')
     }
-  }
-}, [user])
+     if(currentUser?.data?.others?.role === 'admin'){
+      navigate('/home')
+    }
+     if(currentUser?.data?.others?.role === 'manager'){
+      navigate('/home')
+    }
+  };
+
+}, [currentUser])
 
 
   return (

@@ -15,7 +15,7 @@ export const fetchLocalDatas = async (localApiUrl) => {
       return data;
     } catch (error) {
       console.error('Error fetching data:', error);
-      throw error;
+      throw error.message;
     }
   };
 
@@ -33,16 +33,20 @@ export const fetchGlobalDatas = async (newData, url, method,) => {
         body: JSON.stringify(newData)
     });
 
-      if (!response.ok) {
-        console.error('Response Error:', response.status, response.data);
-        throw new Error('Request failed with status ' + response.status);
-      };
+    if (!response.ok) {
+      // Handle 400 status code and parse the error message from the response
+      const errorData = await response.json();
+      const errorMessage = errorData.message || 'Request failed with status ' + response.status;
+      console.error('Response Error:', response.status, errorMessage);
+      throw new Error(errorMessage);
+    }
+
 
       const data = await response.json();
       return data;
 
     } catch (error) {
       console.error('Error fetching data:', error.message);
-      throw error;
+      throw error.message;
     }
   };

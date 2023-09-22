@@ -5,10 +5,12 @@ const authContext = createContext()
 export const AuthContextProvider = ({ children }) => {
     const [studentsData, setStudentsData] = useState([]);
     const [diningDeclaration, setDiningDeclaration] = useState([]);
-    const [user, setUser] = useState({});
+    const [currentUser, setCurrentUser] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
   
+
+
 
 
     // Declaration Data 
@@ -39,13 +41,13 @@ export const AuthContextProvider = ({ children }) => {
       }, [diningDeclaration]);
 
 
-
+const clneUser = 'testtttttttttttttttttt'
       
-
+// console.log('user from context apiiiiiiiiiiii', clneUser) 
 
 
     return (
-        <authContext.Provider value={{setStudentsData, studentsData, diningDeclaration, setUser, user}}>
+        <authContext.Provider value={{setStudentsData, studentsData, diningDeclaration, setCurrentUser, currentUser, clneUser}}>
             {children}
         </authContext.Provider>
     );

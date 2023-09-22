@@ -6,7 +6,6 @@ import { useAuthContext } from '../../context/AuthContextProvider';
 
 const Register = ({ setDineRegisterModal }) => { 
 
-    // const {diningId} = useAuthContext();
     const {diningId} = useParams();
     console.log('gotttttttttttttttttttttttt', diningId)
     
