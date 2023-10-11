@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { fetchGlobalDatas } from '../utils/commonApi';
 import { checkPasswordStrength } from '../utils/commonFunction';
 import { Navigate, useParams } from 'react-router-dom';
+import { useAuth } from '../context/ContextProvider';
 
 const SetPassword = () => {
-  const {diningId} = useParams();
   const [passwordConfirmation, setPasswordConfirmation] = useState(false);
   const [passwordMessage, setPasswordMessage] = useState('');
 
@@ -37,7 +37,6 @@ const SetPassword = () => {
 
 
       const authInfo = {
-        diningId,
         emailOrPhoneNumber,
         password,
         studentPin
@@ -46,7 +45,7 @@ const SetPassword = () => {
 
       const resAuthInfo = await fetchGlobalDatas(authInfo, 'student/setPassword', 'PATCH');
       
-      console.log('got the user', resAuthInfo.status)
+      console.log('got the user', resAuthInfo)
       
       if (resAuthInfo.data.acknowledged === true) {
       setPasswordConfirmation(true)

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import StudentTable from '../components/dineActivities/StudentTable';
 import { useParams } from 'react-router-dom';
-import DineNav from '../components/dineActivities/DineNav';
-import { useAuthContext } from '../context/AuthContextProvider';
+import { useAuth } from '../context/ContextProvider';
 
 const SingleDine = () => {
 
     const {diningId} = useParams();
     // console.log('dineeeeeeeeeeeeeeee', diningId)
     
-    const {setStudentsData, studentsData} = useAuthContext();
-    const [isLoading, setIsLoading] = useState(false);
+    const {setStudentsData, studentsData} = useAuth();
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
 
@@ -27,7 +26,8 @@ useEffect(() => {
         const studentJson = await response.json();
 
         setStudentsData(studentJson.data)
-        // console.log('datas are goted', studentsData)
+        console.log('datas are goted', studentJson.data)
+        setIsLoading(false)
         setError(null);
       } catch (error) {
         setError(error.message);
@@ -40,8 +40,7 @@ useEffect(() => {
 
 
     return (
-       <div>
-         <DineNav />
+       <div className='pt-16'>
       <StudentTable/>
        </div>
     );

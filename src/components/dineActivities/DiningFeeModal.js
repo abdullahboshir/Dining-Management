@@ -1,12 +1,13 @@
 import React from 'react';
 import { fetchGlobalDatas } from '../../utils/commonApi';
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../../context/ContextProvider';
 
 const DiningFeeModal = ({ setDineFeeModal, selectedStudentId }) => {
 
-    const {diningId} = useParams();
+    const {diningId} = useAuth();
 
-
+console.log('dine iddddddddddddddddzzzzzzzzzz', diningId)
     const handleAddDeposit = (e) => {
         e.preventDefault();
      if(selectedStudentId){

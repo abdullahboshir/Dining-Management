@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 
 import maleAvatar from '../../assets/images/avatar/icon-5359553_640.png';
 import DiningFeeModal from './DiningFeeModal';
-import { useAuthContext } from '../../context/AuthContextProvider';
 import { fetchGlobalDatas } from '../../utils/commonApi';
-import { useParams } from 'react-router-dom';
+import { useAuth } from '../../context/ContextProvider';
 
 const StudentTable = () => {
-  const {diningId} = useParams();
-  const { studentsData, diningDeclaration } = useAuthContext();
+  const {diningId} = useAuth();
+  // const {diningId} = useParams();
+  const { studentsData, diningDeclaration } = useAuth();
   const [dineFeeModal, setDineFeeModal] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState('');
+  // console.log('dining idddddddddddd from studentTabne', diningId)
 
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear().toString();
@@ -18,23 +19,23 @@ const StudentTable = () => {
 
 
   const mealSwitch = (e, studentId) => {
-  try {
-    const checkedValue = e.target.checked;
-  
-    if(checkedValue){
-      const postData = fetchGlobalDatas({diningId, mealSwitch: 'on'}, `student/mealSwitch/${studentId}`, 'PATCH');
-    } else if(!checkedValue){
-      const postData = fetchGlobalDatas({diningId, mealSwitch: 'off'}, `student/mealSwitch/${studentId}`, 'PATCH');
+    try {
+      const checkedValue = e.target.checked;
+
+      if (checkedValue) {
+        const postData = fetchGlobalDatas({ diningId, mealSwitch: 'on' }, `student/mealSwitch/${studentId}`, 'PATCH');
+      } else if (!checkedValue) {
+        const postData = fetchGlobalDatas({ diningId, mealSwitch: 'off' }, `student/mealSwitch/${studentId}`, 'PATCH');
+      }
+    } catch (error) {
+      console.log('Eorror from student table in Meal Switch', error.message)
     }
-  } catch (error) {
-    console.log('Eorror from student table in Meal Switch', error.message)
-  }
   };
 
 
- 
+
   return (
-    <div>
+    <div className='flex justify-center -z-10'>
 
       <div>
         {
@@ -46,71 +47,70 @@ const StudentTable = () => {
       </div>
 
 
-
-      <div className="overflow-x-auto">
-        <table className="table">
-
-          {/* head */}
-          <thead>
-            <tr className='text-sm text-black text-center'>
-              <th className='border-2 py-2 w-16 border-gray-400'></th>
-              <th className='border-2 py-2 px-2 w-56 border-gray-400'>Name</th>
-              <th className='border-2 py-2 px-2 w-24 border-gray-400'>Department</th>
-              <th className='border-2 py-2 px-2 w-32 border-gray-400'>Maintanance Cost</th>
-              <th className='border-2 py-2 px-2 w-32 border-gray-400'>Last Month</th>
-              <th className='border-2 py-2 px-2 w-32 border-gray-400'>Deposit</th>
-              <th className='border-2 py-2 px-2 w-44 border-gray-400'>Meal Info</th>
-              <th className='border-2 py-2 px-2 w-16 border-gray-400'>Total Cost</th>
-              <th className='border-2 py-2 px-2 w-16 border-gray-400'>Refundable</th>
-              <th className='border-2 py-2 px-2 w-16 border-gray-400'>Edit</th>
-            </tr>
-          </thead>
-
-
-          <tbody>
-            <tr className='text-center'>
-
-              <th className='border-2 w-16 border-gray-400'></th>
-              <td className='border-2 py-2 px-2 w-44 border-gray-400'></td>
-              <td className='border-2 py-2 px-2 w-24 border-gray-400'></td>
-
-              <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-3 px-2'>Paid</td>  <td className=' w-[64px] py-3 px-2'>Payble</td> </th>
-
-              <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-3 px-2'>Refund</td>  <td className=' w-[64px] py-3 px-2'>Due</td>
-              </th>
-
-              <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-3 px-2'>Current</td>  <td className=' w-[58px] py-2 px-2'>Total</td>
-              </th>
-
-              <th className='border-2 p-0 w-44 border-gray-400'> <td className='border-r-2 w-[58.67px] py-3 px-2'>Total</td>  <td className=' w-[58.67px] border-r-2 py-3 px-2'>Rate</td> <td className=' w-[58.67px] py-3 px-2'>Fixed</td>
-              </th>
-
-              <td className='border-2 py-2 px-2 border-gray-400'></td>
-              <td className='border-2 py-2 px-2 border-gray-400'></td>
-              <td className='border-2 py-2 px-2 border-gray-400'></td>
-
-            </tr>
-          </tbody>
+      <div>
+        <div className='grid grid-flow-col auto-cols-max'>
+          <div className='bg-gray-200 w-20 p-1 border-r-2 border-y-2 border-gray-400'></div>
+          <div className='bg-gray-200 w-64 p-2 border-r-2 border-y-2 border-gray-400'><p>Name</p></div>
+          <div className='bg-gray-200 w-[120px] p-2 border-r-2 border-y-2 border-gray-400'><p>Department</p></div>
+          <div className='bg-gray-200 w-36 p-1 border-r-2 border-y-2 border-gray-400'><p>Maintanance Cost</p></div>
+          <div className='bg-gray-200 w-32 p-2 border-r-2 border-y-2 border-gray-400'><p>Last Month</p></div>
+          <div className='bg-gray-200 w-36 p-2 border-r-2 border-y-2 border-gray-400'><p>Deposit</p></div>
+          <div className='bg-gray-200 w-40 p-2 border-r-2 border-y-2 border-gray-400'><p>Meal Info</p></div>
+          <div className='bg-gray-200 w-[90px] border-r-2 border-y-2 border-gray-400 p-2'><p>Total Cost</p></div>
+          <div className='bg-gray-200 w-24 p-2 border-r-2 border-y-2 border-gray-400'><p>Refundable</p></div>
+          <div className='bg-gray-200 w-[60px] p-2  border-y-2 border-gray-400'><p>Edit</p></div>
+        </div>
 
 
 
+        <div className='grid grid-flow-col auto-cols-max border-b-2 border-gray-400'>
+          <div className='bg-gray-200 w-20 p-1 border-r-2 border-gray-400'></div>
+          <div className='bg-gray-200 w-64 p-2 border-r-2 border-gray-400'></div>
+          <div className='bg-gray-200 w-[120px] p-2 border-r-2 border-gray-400'></div>
 
-          <tbody>
-            {/* row 1 */}
-            {
-              studentsData.map((data, i) =>
-                <tr key={i}>
+          <div className='grid w-36 grid-cols-2'>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Paid</span>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Payble</span>
+          </div>
+
+          <div className='grid w-32 grid-cols-2'>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Refund</span>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Due</span>
+          </div>
 
 
-                  <th className='border-2 w-10 py-2 px-3 border-gray-400'>
-                    <label className="cursor-pointer label">
-                      <input onClick={(e) => mealSwitch(e, data._id)} type="checkbox" className="toggle toggle-success" disabled={data.mealInfo[currentYear][currentMonth].currentDeposit <= 100} defaultChecked={data.mealInfo[currentYear][currentMonth].mealStatus === 'on'} />
-                    </label>
-
-                  </th>
+          <div className='grid w-36 grid-cols-2'>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Current</span>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Total</span>
+          </div>
 
 
-                  <td className='border-2 py-2 px-2 border-gray-400'>
+          <div className='grid w-40 grid-cols-3'>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Rate</span>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Fixed</span>
+            <span className='bg-gray-200 p-2 border-r-2 border-gray-400'>Total</span>
+          </div>
+
+          <div className='bg-gray-200 w-[90px] p-2 border-r-2 border-gray-400'></div>
+          <div className='bg-gray-200 w-24 p-2 border-r-2 border-gray-400'></div>
+          <div className='bg-gray-200 p-2 w-[60px] '></div>
+        </div>
+
+
+
+        {
+          studentsData?.map((data, i) =>
+
+            <div className='grid grid-flow-col auto-cols-max border-b-2 bg-gray-200 border-gray-400'>
+              <div className='bg-gray-200 w-20 flex justify-center items-center h-[68px] p-2 border-r-2 border-gray-400'>
+                <label className="cursor-pointer label">
+                  <input onClick={(e) => mealSwitch(e, data._id)} type="checkbox" className="toggle toggle-success" disabled={data.mealInfo[currentYear][currentMonth].currentDeposit <= 100} defaultChecked={data.mealInfo[currentYear][currentMonth].mealStatus === 'on'} />
+                </label>
+              </div>
+
+              <div className='bg-gray-200 w-64 p-2 border-r-2 border-gray-400'>
+                {
+                  <div>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
@@ -122,43 +122,55 @@ const StudentTable = () => {
                         <div className="text-lg opacity-80">{data.studentId} / {data?.studentPin}</div>
                       </div>
                     </div>
-                  </td>
+                  </div>
+                }
+              </div>
 
-                  <td className='border-2 py-2 px-2 w-28 border-gray-400 text-black'>
-                    <span className=' text-sm'> {
-                      data.department
-                    }</span>
-                    <br />
-                    <span className="text-base">{data.session}</span>
-                  </td>
+                {
+              <div className='bg-gray-200 w-[120px] h-[68px] grid grid-rows-2 justify-center items-center p-2 border-r-2 border-gray-400'>
+                    <div className=' text-sm'>{data.department}</div>
+                    <div className="text-base">{data.session}</div>
+              </div>
+                }
 
 
-                  <th className='border-2 border-r-0 border-t-0 p-0 w-32 border-gray-400'> <td className='border-r-2  py-[22px] px-2 w-[64px]'>{diningDeclaration.maintenanceCharge}</td>  <td className='w-[64px] py-[22px] px-2 '>1050</td> </th>
+              <div className='grid w-36 h-[68px] grid-cols-2 justify-center items-center'>
+                <span className='bg-gray-200 p-2 border-r-2 h-[68px] border-gray-400 flex justify-center items-center'>{diningDeclaration.maintenanceCharge}</span>
+                <span className='bg-gray-200 p-2 h-[68px] border-gray-400 border-r-2 flex justify-center items-center'>1000</span>
+              </div>
 
-                  <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-[22px] px-2'>570</td><td className='w-[64px] py-[22px] px-2'>160</td>
-                  </th>
+              <div className='grid w-32 h-[68px] grid-cols-2 justify-center items-center'>
+                <span className='bg-gray-200 h-[68px] flex justify-center items-center p-2 border-r-2 border-gray-400'>570</span>
+                <span className='bg-gray-200 h-[68px] flex justify-center items-center p-2 border-r-2 border-gray-400'>160</span>
+              </div>
 
-                  <th className='border-2 p-0 w-32 border-gray-400'> <td className='border-r-2 w-[64px] py-[22px] px-2 pl-[26px]'>{data.mealInfo[currentYear][currentMonth].currentDeposit}</td>  <td className={data.mealInfo[currentYear][currentMonth].totalDeposit? 'w-[64px] py-[22px] px-2': 'text-red-500'}>{data.mealInfo[currentYear][currentMonth].totalDeposit}</td>
-                  </th>
 
-                  <th className='border-2 p-0 w-44 border-gray-400'> <td className='border-r-2  w-[58px] py-[22px] px-2'>{data.mealInfo[currentYear][currentMonth].totalMeal}</td>  <td className='  w-[58px] py-[22px] px-2 border-r-2'>{diningDeclaration.mealCharge}</td> <td className='  w-[58px]  py-[22px] px-2'>01</td>
-                  </th>
+              <div className='grid w-36 h-[68px] grid-cols-2'>
+                <span className='bg-gray-200 p-2 border-r-2 border-gray-400 h-[68px] flex justify-center items-center'>{data.mealInfo[currentYear][currentMonth].currentDeposit}</span>
+                <span className={data.mealInfo[currentYear][currentMonth].totalDeposit ? 'bg-gray-200 p-2 border-r-2 border-gray-400 h-[68px] flex justify-center items-center' : 'text-red-500 bg-gray-200 border-r-2 border-gray-400 h-[68px] flex justify-center items-center'}>160</span>
+              </div>
 
-                  <th className='border-2 p-0 w-18 py-[22px] px-2 border-gray-400'>{data.mealInfo[currentYear][currentMonth].totalCost}</th>
-                  <th className='border-2 p-0 w-18 py-[22px] px-2 border-gray-400'>560</th>
 
-                  <th className='border-2 border-gray-400 w-12'>
-                    <button onClick={() => { setDineFeeModal(true); setSelectedStudentId(data._id); }} className="btn btn-ghost btn-xs">Add</button>
+              <div className='grid w-40 h-[68px] grid-cols-3'>
+                <span className='bg-gray-200 p-2 border-r-2 border-gray-400 h-[68px] flex justify-center items-center'>{diningDeclaration.mealCharge}</span>
+                <span className='bg-gray-200 p-2 border-r-2 border-gray-400 h-[68px] flex justify-center items-center'>01</span>
+                <span className='bg-gray-200 p-2 border-r-2 border-gray-400 h-[68px] flex justify-center items-center'>{data.mealInfo[currentYear][currentMonth].totalMeal}</span>
+              </div>
 
-                  </th>
-                </tr>)
-            }
+              <div className='bg-gray-200 w-[90px] h-[68px] flex justify-center items-center p-2 border-r-2 border-gray-400'>{data.mealInfo[currentYear][currentMonth].totalCost}</div>
 
-          </tbody>
-        </table>
+              <div className='bg-gray-200 w-24 h-[68px] flex justify-center items-center p-2 border-r-2 border-gray-400'>560</div>
+
+              <div className='bg-gray-200 p-2 w-[60px] h-[68px] flex justify-center items-center'>
+                <button onClick={() => { setDineFeeModal(true); setSelectedStudentId(data._id); }} className="btn btn-ghost btn-xs">Add</button>
+              </div>
+              
+            </div>
+          )
+        }
+
       </div>
-
-    </div>
+    </div >
   );
 };
 

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchGlobalDatas, fetchLocalDatas } from '../../utils/commonApi';
 import { checkIsArray, findLocation } from '../../utils/commonFunction';
-import Loading from '../../pages/Loading';
 
 const Register = () => {
-
     const [division, setDivision] = useState([]);
     const [district, setDistrict] = useState([]);
     const [upazilla, setUpazilla] = useState([]);

@@ -13,7 +13,7 @@ useEffect(() => {
 
     console.log('this token is gottttttttt', fetchData)
     }
-}, [user, token])
+}, [user])
 
 };
 

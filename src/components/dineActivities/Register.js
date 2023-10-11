@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { fetchGlobalDatas, fetchLocalDatas } from '../../utils/commonApi';
 import { checkIsArray, findLocation } from '../../utils/commonFunction';
 import { useParams } from 'react-router-dom';
-import { useAuthContext } from '../../context/AuthContextProvider';
+import { useAuth } from '../../context/ContextProvider';
 
 const Register = ({ setDineRegisterModal }) => { 
 
-    const {diningId} = useParams();
-    console.log('gotttttttttttttttttttttttt', diningId)
+    const {diningId} = useAuth();
+    console.log('dine idddddddddddddddd', diningId)
     
     const [subjects, setSubjects] = useState([]);
     const [division, setDivision] = useState([]);
@@ -24,7 +24,6 @@ const Register = ({ setDineRegisterModal }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // console.log('dingingID', diningId)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -97,12 +96,10 @@ const Register = ({ setDineRegisterModal }) => {
     checkIsArray(upazilla)
     checkIsArray(union)
 
-    // const diningId = '"' + diningId + '"';
+
     
     const handleStudentRegister = (e) => {
         e.preventDefault();
-        // console.log('tdddddddddd', diningId)
-        // const diningIdentity = diningId
         const studentId = e.target.studentId.value;
         const name = e.target.name.value;
         const gender = e.target.elements.gender.value;
@@ -171,7 +168,6 @@ const Register = ({ setDineRegisterModal }) => {
             <div className='h-screen w-screen bg-black opacity-60 absolute top-0'></div>
             <div className='bg-white h-[530px]  w-[1200px] absolute flex justify-center flex-col overflow-y-auto py-10'>
                 <h1 className='text-4xl mb-10 pt-28'>Add a new Student</h1>
-                    {/* <p>dining ID: {diningId}</p> */}
                 <form onSubmit={handleStudentRegister} className='flex justify-center items-center flex-col'>
 
                     <div className='flex flex-col justify-center items-evenly'>

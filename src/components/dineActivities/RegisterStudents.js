@@ -6,11 +6,11 @@ const RegisterStudents = () => {
     const [dineRegisterModal, setDineRegisterModal] = useState(false);
 
     return (
-        <div>=
+        <div>
 
 {
                 dineRegisterModal &&
-                <div className='absolute z-10 top-0 right-0 left-0 bottom-0'>
+                <div className='absolute z-50 top-0 right-0 left-0 bottom-0'>
                     <Register setDineRegisterModal={setDineRegisterModal} />
                 </div>
             }
