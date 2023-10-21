@@ -26,7 +26,6 @@ useEffect(() => {
         const studentJson = await response.json();
 
         setStudentsData(studentJson.data)
-        console.log('datas are goted', studentJson.data)
         setIsLoading(false)
         setError(null);
       } catch (error) {

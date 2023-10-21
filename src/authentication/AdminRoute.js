@@ -11,6 +11,7 @@ const AdminRoute = ({ element }) => {
 
 
   if (!token || !admin || loading) {
+    console.log('I am from Admin route')
     return <Navigate to="/login" />;
   }
 

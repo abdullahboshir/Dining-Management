@@ -4,12 +4,7 @@ import { fetchGlobalDatas } from '../utils/commonApi';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
-// const AuthContext = createContext({
-//   user: null,
-//   login: () => {},
-//   logout: () => {},
-//   isAdmin: false,
-// });
+
 
 export const ContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -111,8 +106,11 @@ export const ContextProvider = ({ children }) => {
         setCurrentUser(userData);
         setIsLoading(false);
       } catch (error) {
-        // Handle errors here, e.g., redirect to login page
-        console.error('Error verifying profile:', error);
+        localStorage.clear();
+        setCurrentUser(null);
+        setStudentsData(null);
+        navigate('/home')
+        console.error('Error verifying profile:', error.message);
         setIsLoading(false);
       }
     };

@@ -4,7 +4,7 @@ const Middle = () => {
     const [data, setData] = useState([]);
     const [coinData, setCoinData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostPerPage] = useState(2);
+    const [postsPerPage, setPostPerPage] = useState(3);
 
     
     useEffect(() => {
@@ -19,9 +19,30 @@ const Middle = () => {
                 {name: 'Arif'},
                 {name: 'Arif'},
                 {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
+                {name: 'Arif'},
             ];
 
-            if (currentPage > 1 && postsPerPage > 1) { 
+            if (currentPage > 1 && postsPerPage > 2) { 
                 console.log('dataaaaaaaaaaaaa', response)
                 setData(response)
             }

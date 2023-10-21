@@ -9,6 +9,7 @@ const PrivateRoute = () => {
 
 
     if (!token || token === 'null' || token === 'undefined') {
+      console.log('I am from Admin route')
       return <Navigate to='/login' state={{ from: location }} replace />;
     }
   

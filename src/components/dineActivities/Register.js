@@ -4,11 +4,11 @@ import { checkIsArray, findLocation } from '../../utils/commonFunction';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../../context/ContextProvider';
 
-const Register = ({ setDineRegisterModal }) => { 
+const Register = ({ setDineRegisterModal }) => {
 
-    const {diningId} = useAuth();
-    console.log('dine idddddddddddddddd', diningId)
-    
+    const { diningId } = useAuth();
+
+
     const [subjects, setSubjects] = useState([]);
     const [division, setDivision] = useState([]);
     const [district, setDistrict] = useState([]);
@@ -97,62 +97,93 @@ const Register = ({ setDineRegisterModal }) => {
     checkIsArray(union)
 
 
-    
-    const handleStudentRegister = (e) => {
+
+    const handleStudentRegister = async (e) => {
         e.preventDefault();
-        const studentId = e.target.studentId.value;
-        const name = e.target.name.value;
-        const gender = e.target.elements.gender.value;
-        const roomNumber = e.target.roomNumber.value;
-        const session = e.target.session.value;
-        const status = e.target.elements.status.value?.toLowerCase();
-        const department = e.target.elements.department.value;
-        const admissionFee = e.target.admission.value;
-        const emailOrPhoneNumber = e.target.emailOrPhoneNumber.value;
-        const father = e.target.father.value;
-        const mother = e.target.mother.value;
-        const divisionValue = selectedDivision;
-        const districtValue = selectedDistrict;
-        const subDistrictValue = selectedUpazilla;
-        const allianceValue = selectedUnion;
-        const village = e.target.village.value;
+        const formData = new FormData(e.currentTarget);
+
+        formData.append('diningId', diningId);
+
+        // Address sub-fields
+        formData.append('address[father]', formData.get('father'));
+        formData.append('address[mother]', formData.get('mother'));
+        formData.append('address[divisionValue]', selectedDivision);
+        formData.append('address[districtValue]', selectedDistrict);
+        formData.append('address[subDistrictValue]', selectedUpazilla);
+        formData.append('address[allianceValue]', selectedUnion);
+        formData.append('address[village]', formData.get('village'));
+
+
+        fetch('http://localhost:5000/student/add', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
 
 
 
-        const newStudent = {
-            diningId,
-            studentId,
-            name,
-            gender,
-            roomNumber,
-            session,
-            status,
-            department,
-            admissionFee,
-            emailOrPhoneNumber,
-            address: {
-                father,
-                mother,
-                divisionValue,
-                districtValue,
-                subDistrictValue,
-                allianceValue,
-                village
-            }
-        };
-
-        for (const key in newStudent) {
-            if (!newStudent[key]) {
-                alert(`Missing value for ${key}`);
-                return;
-            }
-        }
-        // alert('All values are present!');
+        //     const studentId = e.target.studentId.value;
+        //     const name = e.target.name.value;
+        //     const gender = e.target.elements.gender.value;
+        //     const roomNumber = e.target.roomNumber.value;
+        //     const session = e.target.session.value;
+        //     const status = e.target.elements.status.value?.toLowerCase();
+        //     const department = e.target.elements.department.value;
+        //     const admissionFee = e.target.admission.value;
+        //     const emailOrPhoneNumber = e.target.emailOrPhoneNumber.value;
+        //     const father = e.target.father.value;
+        //     const mother = e.target.mother.value;
+        //     const divisionValue = selectedDivision;
+        //     const districtValue = selectedDistrict;
+        //     const subDistrictValue = selectedUpazilla;
+        //     const allianceValue = selectedUnion;
+        //     const village = e.target.village.value;
+        //     // const studentImg = e.target.img.files[0];
 
 
-        const postData = fetchGlobalDatas(newStudent, 'student/add', 'POST');
-        console.log('sssss', postData)
-        alert('Student created Successfull', postData)
+
+        //     const newStudent = {
+        //         diningId,
+        //         // studentImg,
+        //         studentId,
+        //         name,
+        //         gender,
+        //         roomNumber,
+        //         session,
+        //         status,
+        //         department,
+        //         admissionFee,
+        //         emailOrPhoneNumber,
+        //         address: {
+        //             father,
+        //             mother,
+        //             divisionValue,
+        //             districtValue,
+        //             subDistrictValue,
+        //             allianceValue,
+        //             village
+        //         }
+        //     };
+
+
+
+        //     for (const key in newStudent){
+        //         if(newStudent[key] === ''){
+        //             console.log(`Value for key ${key} is empty.`);
+        //         }
+        //     }
+
+
+        // //    console.log('imageeeeeeeeeeeee', studentImg)
+        //     const postData = await fetchGlobalDatas(newStudent, 'student/add', 'POST');
+        //     console.log('sssss', postData)
+        //     alert('Student created Successfull', postData)
     };
 
 
@@ -226,7 +257,7 @@ const Register = ({ setDineRegisterModal }) => {
 
                             <div>
                                 <p className='mb-1'>Admission fee</p>
-                                <input name='admission' type="text" placeholder="Type here" className="input input-bordered input-success w-full h-10 max-w-xs mb-4" />
+                                <input name='admissionFee' type="number" placeholder="Type here" className="input input-bordered input-success w-full h-10 max-w-xs mb-4" />
                             </div>
 
                             <div>
@@ -298,7 +329,10 @@ const Register = ({ setDineRegisterModal }) => {
                                 <input name='village' type="text" placeholder="Type here" className="input input-bordered input-success w-full h-10 max-w-xs mb-4" />
                             </div>
 
-
+                        </div>
+                        <div>
+                            <p className='mb-1'>Choose an Image</p>
+                            <input name='img' type="file" placeholder="Type here" className="input input-bordered input-success w-44 h-52 max-w-xs mb-4" />
                         </div>
                     </div>
 

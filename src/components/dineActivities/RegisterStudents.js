@@ -17,7 +17,7 @@ const RegisterStudents = () => {
 
 
               <div className='flex-4 flex-col'>
-                    <div className=' flex items-center justify-center cursor-pointer'>
+                    <div className=' flex items-center justify-start cursor-pointer'>
                         <button onClick={() => setDineRegisterModal(true)} className='text-4xl text-white hover:text-5xl duration-200'><RiUserAddFill /></button>
                     </div>
                 </div>
