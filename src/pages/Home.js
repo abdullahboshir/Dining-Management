@@ -13,7 +13,7 @@ const Home = () => {
                 <Left />
             </div>
 
-            <div className="bg-gray-200 h-[700px] w-[600px] rounded-xl">
+            <div className="border-2 border-gray-200 h-auto w-[600px] rounded-xl px-3">
                 <Middle />
             </div>
 

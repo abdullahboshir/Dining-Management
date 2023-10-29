@@ -7,6 +7,7 @@ import { useAuth } from '../../context/ContextProvider';
 const Register = ({ setDineRegisterModal }) => {
 
     const { diningId } = useAuth();
+    console.log('dining idddddddddddddd', diningId)
 
 
     const [subjects, setSubjects] = useState([]);
@@ -23,8 +24,9 @@ const Register = ({ setDineRegisterModal }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [studentImg, setStudentImg] = useState(null);
 
-
+console.log('aaaaaaaaaaaaaa', studentImg)
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
@@ -114,6 +116,14 @@ const Register = ({ setDineRegisterModal }) => {
         formData.append('address[village]', formData.get('village'));
 
 
+        for(const [key, value] of formData){
+           if(!value){
+            alert(`value missing for ${key}`)
+           };
+           return;
+        }
+
+
         fetch('http://localhost:5000/student/add', {
             method: 'POST',
             body: formData
@@ -197,8 +207,8 @@ const Register = ({ setDineRegisterModal }) => {
             </button>
 
             <div className='h-screen w-screen bg-black opacity-60 absolute top-0'></div>
-            <div className='bg-white h-[530px]  w-[1200px] absolute flex justify-center flex-col overflow-y-auto py-10'>
-                <h1 className='text-4xl mb-10 pt-28'>Add a new Student</h1>
+            <div className='bg-white h-[500px]  w-[1050px] absolute flex justify-center flex-col overflow-y-auto py-10 pt-96'>
+                <h1 className='text-4xl mb-10'>Add a new Student</h1>
                 <form onSubmit={handleStudentRegister} className='flex justify-center items-center flex-col'>
 
                     <div className='flex flex-col justify-center items-evenly'>
@@ -330,9 +340,15 @@ const Register = ({ setDineRegisterModal }) => {
                             </div>
 
                         </div>
-                        <div>
-                            <p className='mb-1'>Choose an Image</p>
-                            <input name='img' type="file" placeholder="Type here" className="input input-bordered input-success w-44 h-52 max-w-xs mb-4" />
+                        <div className='mt-5 mb-10 flex justify-center items-center'>
+                         {
+                            studentImg? <div>
+                                <img  src={URL.createObjectURL(studentImg)} alt="Student" className="max-h-52 max-w-44 p-1 rounded cursor-pointer bg-blue-400 hover:bg-blue-700 "></img>
+                          {studentImg &&  <label htmlFor='file-input' className='cursor-pointer bg-blue-500 hover:bg-blue-700 flex justify-center items-center text-sm text-white font-bold py-2 px-4 rounded mt-1'>Change image?</label>}
+                            </div> : <label htmlFor='file-input' className="cursor-pointer bg-blue-500 hover:bg-blue-700 flex justify-center items-center text-lg text-white font-bold py-2 px-4 rounded w-44 h-52 block">Choose a Photo</label>
+                         }
+
+                            <input onChange={(e) => setStudentImg(e.target.files[0])} id='file-input' name='img' type="file" placeholder="Type here" className='hidden'/>
                         </div>
                     </div>
 

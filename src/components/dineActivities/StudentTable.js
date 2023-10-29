@@ -5,13 +5,17 @@ import DiningFeeModal from './DiningFeeModal';
 import { fetchGlobalDatas } from '../../utils/commonApi';
 import { useAuth } from '../../context/ContextProvider';
 
-const StudentTable = () => {
+const StudentTable = ({isLoadingg}) => {
   const {diningId} = useAuth();
   // const {diningId} = useParams();
-  const { studentsData, diningDeclaration } = useAuth();
+  const { studentsData, diningDeclaration, isLoading, loading } = useAuth();
   const [dineFeeModal, setDineFeeModal] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState('');
-  // console.log('dining idddddddddddd from studentTabne', diningId)
+
+
+  if(isLoading || isLoadingg || loading){
+      return <div className='flex w-screen h-screen justify-center items-center bg-red-400'>Loading........</div>
+  }
 
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear().toString();
@@ -31,8 +35,6 @@ const StudentTable = () => {
       console.log('Eorror from student table in Meal Switch', error.message)
     }
   };
-
-
 
   return (
     <div className='flex justify-center -z-10'>
@@ -114,7 +116,7 @@ const StudentTable = () => {
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <img src={maleAvatar} alt="Avatar Tailwind CSS Component" />
+                          <img src={ data.studentImg? `http://localhost:5000/${data?.studentImg}` : maleAvatar} alt="Avatar Tailwind CSS Component" />
                         </div>
                       </div>
                       <div>

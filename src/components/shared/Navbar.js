@@ -11,7 +11,7 @@ import PostModal from "../dineActivities/PostModal";
 const Navbar = () => {
     const { logout, token, admin, manager } = useAuth()
     const [commonCharge, setCommonCharge] = useState(false);
-    const [postModal, setPostModal] = useState(false);
+    const [postModalSwitch, setPostModalSwitch] = useState(false);
 
     const path = useLocation()
     const dineId = path.pathname.split('/')[2];
@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="h-16 w-full bg-blue-500 flex flex-row items-center fixed top-0 z-20 px-5 justify-center">
 
             <div>
-                {postModal && <PostModal setPostModal={setPostModal} />}
+                {postModalSwitch && <PostModal setPostModalSwitch={setPostModalSwitch} />}
             </div>
 
             <div>
@@ -38,7 +38,7 @@ const Navbar = () => {
                 </div> : (admin || manager) && !isDineId && <div className='flex-4 flex-col'>
                     <div className=' flex items-center justify-start cursor-pointer'>
 
-                        <button onClick={() => setPostModal(true)} className='text-4xl text-white hover:text-5xl duration-200'><RxPencil2 /></button>
+                        <button onClick={() => setPostModalSwitch(true)} className='text-4xl text-white hover:text-5xl duration-200'><RxPencil2 /></button>
                     </div>
                 </div>
             }

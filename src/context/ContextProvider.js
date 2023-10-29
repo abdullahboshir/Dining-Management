@@ -29,8 +29,8 @@ export const ContextProvider = ({ children }) => {
 
 
         setDiningDeclaration(declarationJson.data);
-        setIsLoading(false)
         setError(null);
+        setIsLoading(false)
       } catch (error) {
         setError(error.message);
       }
@@ -47,7 +47,6 @@ export const ContextProvider = ({ children }) => {
 
   const login = async (emailOrPhoneNumber, password) => {
     try {
-      setIsLoading(true);
       const userData = await fetchGlobalDatas({ emailOrPhoneNumber, password }, 'student/login', 'POST');
       if (!userData) {
         throw new Error('Authentication failed');
@@ -72,7 +71,6 @@ export const ContextProvider = ({ children }) => {
 
 
   useEffect(() => {
-    setIsLoading(true)
     const verifyProfile = async () => {
       try {
         if (!token) {
@@ -111,14 +109,11 @@ export const ContextProvider = ({ children }) => {
         setStudentsData(null);
         navigate('/home')
         console.error('Error verifying profile:', error.message);
-        setIsLoading(false);
       }
     };
 
     verifyProfile();
   }, [token]);
-
-
 
 
   const { loading, isAdmin, adminData } = useAdmin(currentUser?.data?.others?.emailOrPhoneNumber);
@@ -135,8 +130,6 @@ export const ContextProvider = ({ children }) => {
     setStudentsData(null);
     navigate('/home')
   };
-
-
 
   return (
     <AuthContext.Provider value={{ setCurrentUser, currentUser, diningDeclaration, login, logout, setStudentsData, studentsData, admin, manager, token, loading, handeDineId, diningId, isLoading }}>

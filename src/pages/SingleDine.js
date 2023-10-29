@@ -16,7 +16,6 @@ const SingleDine = () => {
 // Student Data 
 useEffect(() => {
     const fetchDiningApi = async () => {
-      setIsLoading(true);
       try {
         const response = await fetch(`http://localhost:5000/students?diningId=${diningId}`);
         if (!response.ok) {
@@ -40,7 +39,7 @@ useEffect(() => {
 
     return (
        <div className='pt-16'>
-      <StudentTable/>
+      <StudentTable isLoadingg={isLoading}/>
        </div>
     );
 };

@@ -11,7 +11,6 @@ const StudentProfile = () => {
 
     useEffect(() => {
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        console.log('checkboxxxxx', checkboxes)
         const hr = document.querySelector('hr');
 
         function toggleAll(isEnabled) {
